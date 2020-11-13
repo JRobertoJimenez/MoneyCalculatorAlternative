@@ -56,6 +56,13 @@ public class RateList {
         
         return rates;
     }
+
+    public double Exchange(Money money, String selectedCurrency) {
+        Double exchange=money.getAmount() *
+                this.getRate(money.getCurrency().getID()+"-"+selectedCurrency).getRate();
+        return Math.round(exchange*100)/100.0;
+       
+    }
     
     
 

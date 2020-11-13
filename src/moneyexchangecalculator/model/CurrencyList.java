@@ -40,7 +40,6 @@ public class CurrencyList {
         int i=0;
         for (String currency : currencyList.keySet()) {
             currencies[i]= currency;
-            System.out.println(currency);
             i++;
         }
         return currencies;
