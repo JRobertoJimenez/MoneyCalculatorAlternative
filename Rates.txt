@@ -1,2 +1,0 @@
-1.10,EUR,USD
-1.5,EUR,GBP

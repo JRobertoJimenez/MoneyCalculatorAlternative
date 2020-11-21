@@ -7,13 +7,16 @@ import maneyexchangecalculator.persistence.RateLoaderWeb;
 import moneyexchangecalculator.model.CurrencyList;
 import moneyexchangecalculator.model.Money;
 import moneyexchangecalculator.model.Rate;
+import moneyexchangecalculator.view.CurrenciesView;
 import moneyexchangecalculator.view.View;
 
 
 public class MoneyExchangeCalculator {
 
    private static final String fileNameCurrencies="Currencies.txt";
-   private static final String urlRates="http://api.fixer.io/latest?base=@&symbols=@";
+   private static final String urlRates="http://data.fixer.io/api/latest?access_key="
+           + "5a2ceb13dfe99d0f5d74090fcd6d3b13"
+           + "&base=@&symbols=@";
    private static CurrencyList currencies;
    private static RateLoader rates;
    private static View view;
@@ -47,7 +50,7 @@ public class MoneyExchangeCalculator {
                         currencies.getCurrency(args[1]) );
         
 
-        String [] aux={rate.getRate()+"", rate.getDestinyCurrency()};
+        String [] aux={rate.getRate()*money.getAmount()+"", rate.getDestinyCurrency()};
         view.setValueExchanged(aux);
                     
     }
@@ -55,6 +58,10 @@ public class MoneyExchangeCalculator {
     public static void update(){
         input();
         view.setCurrencies(currencies.getCurrencies());
+    }
+
+    public static void showCurrencies() {
+        new CurrenciesView(currencies.toString()).setVisible(true);
     }
     
 }

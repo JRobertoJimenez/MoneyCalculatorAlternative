@@ -24,7 +24,7 @@ public class Rate {
 
     @Override
     public String toString() {
-        return "Un "+originCurrency+" es igual a "+
+        return "Un "+originCurrency+" equivale a "+
                 rate+" "+destinyCurrency;
     }
 

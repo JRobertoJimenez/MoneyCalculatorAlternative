@@ -20,7 +20,7 @@ public class Currency {
 
     @Override
     public String toString() {
-        return ID +" corresponde a "+name;
+    return ID +" corresponde a "+name+" y su símbolo es "+symbol;
     }
     
     

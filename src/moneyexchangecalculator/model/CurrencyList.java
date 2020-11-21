@@ -44,4 +44,13 @@ public class CurrencyList {
         }
         return currencies;
     }
+    
+    @Override
+    public String toString(){
+        String aux="";
+        for (Currency currency : currencyList.values()) {
+            aux+=currency.toString()+"\n";
+        }
+        return aux;
+    }
 }
