@@ -4,15 +4,14 @@ package moneyexchangecalculator.model;
 
 public class Rate {
     private final double rate;
-    private final String originCurrency;
-    private final String destinyCurrency;
+    private final Currency originCurrency, destinyCurrency;
     private final String ID;
 
-    public Rate(double rate, String originCurrency, String destinyCurrency) {
+    public Rate(Currency originCurrency, Currency destinyCurrency, double rate) {
         this.rate = rate;
         this.originCurrency = originCurrency;
         this.destinyCurrency = destinyCurrency;
-        ID= originCurrency+"-"+destinyCurrency;
+        ID= originCurrency.getID()+"-"+destinyCurrency.getID();
     }
 
     public double getRate() {
@@ -29,12 +28,12 @@ public class Rate {
                 rate+" "+destinyCurrency;
     }
 
-    Object getOriginCurrency() {
-        return originCurrency;
+    public String getOriginCurrency() {
+        return originCurrency.getID();
     }
 
-    String getDestinyCurrency() {
-        return destinyCurrency;
+    public String getDestinyCurrency() {
+        return destinyCurrency.getID();
     }
       
 }

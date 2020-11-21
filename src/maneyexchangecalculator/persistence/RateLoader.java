@@ -5,17 +5,18 @@
  */
 package maneyexchangecalculator.persistence;
 
-import moneyexchangecalculator.model.RateList;
+import moneyexchangecalculator.model.Currency;
+import moneyexchangecalculator.model.Rate;
 
 
 /**
  *
  * @author José Roberto Jiménez
  */
-public interface RateListLoader{
+public interface RateLoader{
 
     
-    public RateList load();
+    public Rate load(Currency from, Currency to);
     
     
 }

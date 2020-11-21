@@ -30,8 +30,8 @@ public class CurrencyListLoaderCSV implements CurrencyListLoader{
             String [] data;
             String line=br.readLine();
             while(line !=null){
-                data=line.split(";");
-                currencyList.putCurrency(new Currency(data[0], data[1]));
+                data=line.split(",");
+                currencyList.putCurrency(new Currency(data[0], data[1], data[2]));
                 line=br.readLine();
             }
         } catch (Exception e) {

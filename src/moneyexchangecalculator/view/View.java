@@ -173,6 +173,7 @@ public class View extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        jPanel4.add(jButton2);
 
         jButton3.setText("Actualizar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -180,24 +181,7 @@ public class View extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addGap(55, 55, 55))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jButton2)
-                .addComponent(jButton3))
-        );
+        jPanel4.add(jButton3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -230,9 +214,9 @@ public class View extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String [] aux={"jB1",(String) jComboBox1.getSelectedItem(),
+        String [] aux={(String) jComboBox1.getSelectedItem(),
                         (String)jComboBox2.getSelectedItem(),
-                Double.parseDouble(jTextField1.getText()) +""};
+                        jTextField1.getText()};
         
         MoneyExchangeCalculator.process(aux);
         jPanel3.setVisible(true);
@@ -240,11 +224,7 @@ public class View extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        String [] aux={"jCB1", (String) 
-                    jComboBox1.getSelectedItem()};
-        
-        MoneyExchangeCalculator.process(aux);
-        
+       
         jButton1.setEnabled(false); //modificar luego
         jPanel2.setVisible(true);
         jPanel3.setVisible(false);
@@ -275,12 +255,9 @@ public class View extends javax.swing.JFrame {
         MoneyExchangeCalculator.update();
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    public void setOriginCurrencies(String [] originCurrencies){
+    public void setCurrencies(String [] originCurrencies){
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(originCurrencies));
-    }
-    
-    public void setDestinyCurrencies(String [] destinyCurrencies){
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(destinyCurrencies));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(originCurrencies));
     }
     
     public void setValueExchanged(String [] vExchanged){

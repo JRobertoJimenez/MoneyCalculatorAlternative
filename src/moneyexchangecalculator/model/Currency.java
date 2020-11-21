@@ -2,12 +2,12 @@
 package moneyexchangecalculator.model;
 
 public class Currency {
-    private final String ID;
-    private final String name;
+    private final String ID, name, symbol;
 
-    public Currency(String ID, String name) {
+    public Currency(String ID, String name, String symbol) {
         this.ID = ID;
         this.name = name;
+        this.symbol=symbol;
     }
 
     public String getID() {
